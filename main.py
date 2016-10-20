@@ -1,0 +1,3 @@
+import fakeredis
+
+print "Test"
