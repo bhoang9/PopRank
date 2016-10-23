@@ -1,7 +1,10 @@
+#Mostly pseudocode atm
+
 from random import randint
 
 
 interval = ;
+
 
 def voteTimeCheck( currentTime ):
 
@@ -23,7 +26,8 @@ def voteTime( currentTime, getNew):
       newSubmissions = getNewSubmissions()
       newVotes(newSubmissions)
 
-    generalVoters()
+    generalSubmissions = getGeneralSubmissions()
+    generalVotes(generalSubmissions)
 
 
 
@@ -39,16 +43,45 @@ def doesUserVoteUp(intrinsicPostValue):
 
 
 
-
   
 def popularVotes( submissions ):
 
+  for submission in submissions:
 
+    postNumber = submission.index
+    intrinsicPostValue = postList.postNumber
+
+    if (doesUserVoteUp(intrinsicPostValue)):
+      submissionUpvote(submission)
+    else
+      submissionDownvote(submission)
 
 
 def newVotes( submissions ):
 
 
+  for submission in submissions:
 
+    postNumber = submission.index
+    intrinsicPostValue = postList.postNumber
+
+    if (doesUserVoteUp(intrinsicPostValue)):
+      submissionUpvote(submission)
+    else
+      submissionDownvote(submission)
+
+
+
+def generalVotes( submissions ):
+
+  for submission in submissions:
+
+    postNumber = submission.index
+    intrinsicPostValue = postList.postNumber
+
+    if (doesUserVoteUp(intrinsicPostValue)):
+      submissionUpvote(submission)
+    else
+      submissionDownvote(submission)
 
 
