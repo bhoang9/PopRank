@@ -1,10 +1,55 @@
 import fakeredis
 
-print "Test"
 
-r = fakeredis.FakeStrictRedis()
+print('Initializing Configurations')
 
-r.set('foo','bar')
+endTime = 10
 
-print(r.get('foo'))
+
+print('Configurations Initiliazed')
+
+
+print('Initilizing Simulation Subfunctions')
+
+
+
+print('Simulation Subfunctions Initialized')
+
+
+print('Starting Simulation')
+
+currentTime = 0
+
+while currentTime < endTime :
+
+  print('hello')
+
+  currentTime += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
