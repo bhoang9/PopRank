@@ -1,6 +1,6 @@
-Import fakeredis
+import fakeredis
 from module.AverageSort import AverageSort
-
+import uservotes
 
 print('Initializing Configurations')
 
@@ -33,14 +33,8 @@ AverageSort.voteDown(1)
 
 while currentTime < endTime :
 
-
-
   #Votes
-  voteTime(currentTime, moduleArray)
-
-
-
-  print(AverageSort.redis.zscore("average", 1))
+  uservotes.voteTime(currentTime, moduleArray)
 
   currentTime += 1
 
