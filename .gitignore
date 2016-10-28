@@ -1,2 +1,4 @@
 fakeredis/*
 !fakeredis/README.txt
+redis/*
+!redis/README.txt
