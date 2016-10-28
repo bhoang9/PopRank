@@ -1,59 +1,54 @@
-from random import randint
+import random
 
-voteTimeInterval = 1;
-
-
-def voteTime(currentTime, moduleArray):
+def voteTime(postList, voteTimeInterval, currentTime, moduleArray):
   for module in moduleArray:
-    if (voteTimeCheck(currentTime)):
+    if (voteTimeCheck(voteTimeInterval, currentTime)):
       #Get the submission
       popularSubmissions = getPopularSubmissions(module)
       newSubmissions = getNewSubmissions(module)
       #Make the votes on those submissions
-      popularVotes(popularSubmissions)
-      newVotes(newSubmissions)
+      popularVotes(module, postList, popularSubmissions)
+      newVotes(module, postList, newSubmissions)
 
-
-def voteTimeCheck(currentTime):
+def voteTimeCheck(voteTimeInterval, currentTime):
   if (currentTime % voteTimeInterval == 0):
     return True
   else:
     return False
 
-
 def getPopularSubmissions(module):
   return module.topN(100)
-
 
 def getNewSubmissions(module):
   return module.newN(100)
 
-
-def popularVotes( submissions ):
+def popularVotes(module, postList,submissions):
   for submission in submissions:
-    print(submissions)
-    print(submission)
-    postNumber = submission.index
-    intrinsicPostValue = postList.postNumber
+    index = int(submission)
+    intrinsicPostValue = postList[index]
     if (doesUserVoteUp(intrinsicPostValue)):
-      submissionUpvote(submission)
+      submissionUpvote(module, index)
     else:
-      submissionDownvote(submission)
+      submissionDownvote(module, index)
 
-
-def newVotes( submissions ):
+def newVotes(module, postList,submissions):
   for submission in submissions:
-    postNumber = submission.index
-    intrinsicPostValue = postList.postNumber
+    index = int(submission)
+    intrinsicPostValue = postList[index]
     if (doesUserVoteUp(intrinsicPostValue)):
-      submissionUpvote(submission)
+      submissionUpvote(module, index)
     else:
-      submissionDownvote(submission)
-
+      submissionDownvote(module, index)
 
 def doesUserVoteUp(intrinsicPostValue):
-  if ( randint(0,99) < intrinsicPostValue ):
+  if ( random.uniform(-1,1) < intrinsicPostValue ):
     votesUp = True
   else:
     votesUp = False  
   return votesUp
+
+def submissionUpvote(module, index):
+  module.voteUp(index)
+
+def submissionDownvote(module, index):
+  module.voteDown(index)

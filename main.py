@@ -4,10 +4,17 @@ import uservotes
 
 print('Initializing Configurations')
 
-endTime = 10
+endTime = 1000
 
 #Module Inits
+
+voteTimeInterval = 1
+
 AverageSort.init(fakeredis)
+
+postList = [.6,.5,.2]
+
+AverageSort.addPost(1,1)
 
 
 #Create Module Array
@@ -27,19 +34,16 @@ print('Starting Simulation')
 
 currentTime = 0
 
-AverageSort.addPost(1,1)  
-
-AverageSort.voteDown(1)
 
 while currentTime < endTime :
 
   #Votes
-  uservotes.voteTime(currentTime, moduleArray)
+  uservotes.voteTime(postList, voteTimeInterval, currentTime, moduleArray)
 
   currentTime += 1
 
 
-
+print(AverageSort.redis.zscore("average",1))
 
 
 
