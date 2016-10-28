@@ -1,5 +1,8 @@
 import fakeredis
+from module.AverageSort import AverageSort
 
+
+AverageSort.helloworld()
 
 print('Initializing Configurations')
 
