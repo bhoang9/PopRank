@@ -9,6 +9,6 @@ Similarly, we could run the functions concurrent with some python libraries.
 
 However, the best option for simulation purposes is stepping through fake units of time and running the functions sequentially. This allows us to be independent of time in our simulation and run fair tests, by allowing us to test multiple algorithms "simultaneously".
 
+## Helpful stuff
 
-
-
+exec(open("./main.py").read(), globals()) runs main.py in python interpreter
