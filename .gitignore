@@ -1,4 +1,4 @@
 fakeredis/*
-!fakeredis/README.txt
+!fakeredis/README.md
 redis/*
-!redis/README.txt
+!redis/README.md
