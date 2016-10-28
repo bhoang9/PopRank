@@ -33,9 +33,9 @@ class AverageSort:
   @staticmethod
   def topN(n):
     #returns array
-    return = AverageSort.redis.zrange("average", 0, n)
+    return AverageSort.redis.zrange("average", 0, n)
 
   @staticmethod
   def newN(n):
     #returns array
-    return = AverageSort.redis.zrange("time", 0, n)
+    return AverageSort.redis.zrange("time", 0, n)

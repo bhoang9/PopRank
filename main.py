@@ -6,9 +6,12 @@ print('Initializing Configurations')
 
 endTime = 10
 
+#Module Inits
 AverageSort.init(fakeredis)
 
-moduleArray = ['AverageSort']
+
+#Create Module Array
+moduleArray = [AverageSort]
 
 print('Configurations Initiliazed')
 
@@ -36,11 +39,6 @@ while currentTime < endTime :
   voteTime(currentTime, moduleArray)
 
 
-
-
-  print('hello')
-
-  AverageSort.voteUp(1)  
 
   print(AverageSort.redis.zscore("average", 1))
 

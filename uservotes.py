@@ -10,7 +10,7 @@ def voteTimeCheck( currentTime ):
     return False
 
 
-def voteTime( currentTime, getNew):
+def voteTime(currentTime, getNew):
 
   if (voteTimeCheck()):
     popularSubmissions = getPopularSubmissions()
