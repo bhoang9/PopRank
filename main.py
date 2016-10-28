@@ -1,6 +1,7 @@
+import redis
 import fakeredis
-from module.AverageSort import AverageSort
 import uservotes
+from module.AverageSort import AverageSort
 
 print('Initializing Configurations')
 
@@ -8,9 +9,11 @@ endTime = 1000
 
 #Module Inits
 
+testing = True;
+
 voteTimeInterval = 1
 
-AverageSort.init(fakeredis)
+AverageSort.init(fakeredis,redis,testing)
 
 postList = [.6,.5,.2]
 

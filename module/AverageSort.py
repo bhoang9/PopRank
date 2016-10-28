@@ -3,8 +3,12 @@ class AverageSort:
   redis = None
 
   @staticmethod
-  def init(fakeredis):
-    AverageSort.redis = fakeredis.FakeStrictRedis()    
+  def init(fakeredis,redis,testing):
+    if(testing):
+      AverageSort.redis = fakeredis.FakeStrictRedis()
+    else:
+      AverageSort.redis = redis.StrictRedis(host='localhost', port=6379, db=0)
+    AverageSort.redis.flushall()
 
   @staticmethod
   def addPost(index, count):
