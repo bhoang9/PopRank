@@ -8,6 +8,8 @@ endTime = 10
 
 AverageSort.init(fakeredis)
 
+moduleArray = ['AverageSort']
+
 print('Configurations Initiliazed')
 
 
@@ -31,9 +33,8 @@ while currentTime < endTime :
 
 
   #Votes
-  if (voteTimeCheck(currentTime)){
-    voteTime()
-  }
+  voteTime(currentTime, moduleArray)
+
 
 
 
