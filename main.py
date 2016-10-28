@@ -1,4 +1,4 @@
-import fakeredis
+Import fakeredis
 from module.AverageSort import AverageSort
 
 
@@ -27,6 +27,15 @@ AverageSort.addPost(1,1)
 AverageSort.voteDown(1)
 
 while currentTime < endTime :
+
+
+
+  #Votes
+  if (voteTimeCheck(currentTime)){
+    voteTime()
+  }
+
+
 
   print('hello')
 

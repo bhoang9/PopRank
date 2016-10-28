@@ -3,7 +3,7 @@
 from random import randint
 
 
-interval = ;
+voteTimeinterval = ;
 
 
 def voteTimeCheck( currentTime ):
