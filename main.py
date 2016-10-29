@@ -9,7 +9,7 @@ endTime = 1000
 
 #Module Inits
 
-testing = False;
+testing = True;
 
 voteTimeInterval = 1
 
