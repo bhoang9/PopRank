@@ -9,13 +9,13 @@ endTime = 1000
 
 #Module Inits
 
-testing = True;
+testing = False;
 
 voteTimeInterval = 1
 
 AverageSort.init(fakeredis,redis,testing)
 
-postList = [.6,.5,.2]
+postList = [.6,-.5,.2]
 
 AverageSort.addPost(1,1)
 
