@@ -2,3 +2,5 @@ fakeredis/*
 !fakeredis/README.md
 redis/*
 !redis/README.md
+redisunstable/*
+!redisunstable/redisunstable.md
