@@ -1,12 +1,12 @@
 import random
 
-endTime = 100
-interval = 5
-length = endTime/interval 
-intrinsicArray = [0] * length
+def intrinsicArray(endTime, interval):
 
-for i in range (0,index):
-    x = random.randrange(0,99)
-    intrinsicArray[i] = x
-    print (intrinsicArray[i])
+    length = int(endTime/interval) 
+    intrArray = [0] * length
 
+    for i in range (0,index):
+        x = random.randrange(0,99)
+        intrinsicArray[i] = x
+
+    return intrArray
