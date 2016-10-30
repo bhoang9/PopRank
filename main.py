@@ -1,23 +1,26 @@
 import redis
 import fakeredis
 import uservotes
+import addPost
 from module.AverageSort import AverageSort
 
 print('Initializing Configurations')
 
-endTime = 1000
+endTime = 100
 
 #Module Inits
 
 testing = True;
 
-voteTimeInterval = 1
+postTimeInterval = 7
+
+voteTimeInterval = 7
 
 AverageSort.init(fakeredis,redis,testing)
 
-postList = [.6,-.5,.2]
+postList = [.6,.5,.2]
 
-AverageSort.addPost(1,1)
+#AverageSort.addPost(1,1)
 
 
 #Create Module Array
@@ -39,14 +42,19 @@ currentTime = 0
 
 
 while currentTime < endTime :
+  #posting
+  addPost.postTime(postTimeInterval, currentTime, endTime, moduleArray)
 
   #Votes
-  uservotes.voteTime(postList, voteTimeInterval, currentTime, moduleArray)
+  #uservotes.voteTime(postList, voteTimeInterval, currentTime, moduleArray)
 
   currentTime += 1
 
 
 print(AverageSort.redis.zscore("average",1))
+
+print(AverageSort.redis.zcard("time"))
+
 
 
 
