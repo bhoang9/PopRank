@@ -1,58 +1,59 @@
 import redis
 import fakeredis
-import userfunctions
+from userfunctions import addPosts, makeVotes
+from initfunctions.intrinsicArray import intrinsicArray
 from module.AverageSort import AverageSort
+
+
 
 print('Initializing Configurations')
 
+#Testing Range
 endTime = 100
-
-#Module Inits
-
-testing = True;
-
 postTimeInterval = 7
+voteTimeInterval = 1
 
-voteTimeInterval = 7
-
-AverageSort.init(fakeredis,redis,testing)
-
-postList = [.6,.5,.2]
-
-#AverageSort.addPost(1,1)
-
-
-#Create Module Array
-moduleArray = [AverageSort]
+#Environment Configs
+testing = True
 
 print('Configurations Initiliazed')
 
 
+
 print('Initilizing Simulation Subfunctions')
 
-
+#Module Inits
+AverageSort.init(fakeredis,redis,testing)
+moduleArray = [AverageSort]
 
 print('Simulation Subfunctions Initialized')
 
 
+
 print('Starting Simulation')
 
+#Simulation Init
+postList = intrinsicArray(endTime, postTimeInterval);
 currentTime = 0
 
-
+#Simulation Start
 while currentTime < endTime :
-  #posting
-  addPost.postTime(postTimeInterval, currentTime, endTime, moduleArray)
+  #Posts
+  addPosts.postTime(postTimeInterval, currentTime, endTime, moduleArray)
 
   #Votes
-  #uservotes.voteTime(postList, voteTimeInterval, currentTime, moduleArray)
+  makeVotes.voteTime(postList, voteTimeInterval, currentTime, moduleArray)
 
+  #increment counter
   currentTime += 1
 
+#Simulation End
+print("Intrinsic Value","Determined Intrinsic Value")
+length = int(endTime/postTimeInterval) + 1
+for i in range(length):
+  print(postList[i], AverageSort.redis.zscore("average",i))
 
-print(AverageSort.redis.zscore("average",1))
 
-print(AverageSort.redis.zcard("time"))
 
 
 
