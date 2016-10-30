@@ -9,8 +9,8 @@ from module.AverageSort import AverageSort
 print('Initializing Configurations')
 
 #Testing Range
-endTime = 100
-postTimeInterval = 7
+endTime = 220
+postTimeInterval = 2
 voteTimeInterval = 1
 
 #Environment Configs
@@ -37,7 +37,7 @@ postList = intrinsicArray(endTime, postTimeInterval);
 currentTime = 0
 
 #Simulation Start
-while currentTime < endTime :
+while currentTime <= endTime :
   #Posts
   addPosts.postTime(postTimeInterval, currentTime, endTime, moduleArray)
 
