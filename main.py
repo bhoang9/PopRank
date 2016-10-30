@@ -1,7 +1,6 @@
 import redis
 import fakeredis
-import uservotes
-import addPost
+import userfunctions
 from module.AverageSort import AverageSort
 
 print('Initializing Configurations')

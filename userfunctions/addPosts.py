@@ -9,9 +9,6 @@ def postTime(postTimeInterval, currentTime, endTime, moduleArray):
             #index += 1
             module.addPost(index, currentTime)        
         
-        
-    
-
 #Checking if it's time to post
 def postTimeCheck(postTimeInterval, currentTime):
     if (currentTime % postTimeInterval == 0):

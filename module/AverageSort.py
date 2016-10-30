@@ -17,6 +17,10 @@ class AverageSort:
     AverageSort.redis.hset(index, "votes", 1)
     AverageSort.redis.zadd("average", 1, index)
 
+  @staticmethod
+  def getRedisListSize():
+    return AverageSort.redis.zcard("time")
+
 
   @staticmethod
   def voteUp(index):
