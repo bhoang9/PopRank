@@ -75,5 +75,24 @@ So we should only add the sum of squares of those posts that have high intrinsic
 ## Time Dependent
 
 
+## Algorithm Design
+
+### Figure out what Algorithm is doing
+
+p-hat = Variable, upvotes/votes
+z-alpha/2 = Constant, norm dist value, 1.96
+n = constant, but depends on users
+
+
+
+### Pseudocode of Algorithm
+
+
+
+### Implement Algorithm
+
+### Use metric on algorithm
+
+
 
 
