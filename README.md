@@ -65,8 +65,14 @@ This one is very similar to simple difference except after finding the differenc
 
 metric = sum( (f(x)-y)^2 )
 
-## Time Dependent
+### Residual Sum of Squares of the best posts
 
+I think we should care more about the good posts than the bad.
+The other time independent ones care too equally about the posts
+
+So we should only add the sum of squares of those posts that have high intrinsic value.
+
+## Time Dependent
 
 
 
