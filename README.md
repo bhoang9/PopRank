@@ -13,15 +13,18 @@ However, the best option for simulation purposes is stepping through fake units 
 
 exec(open("./main.py").read(), globals()) runs main.py in python interpreter
 
-## Todo
+# Todo
 
-### Algorithm Comparison
+## Goal Algorithm Comparison
 
 To see if we have the best algorithm for sorting this type of data, we need some kind of metric to determine how well each alogirthm sorts data. 
 We may need to compare raw data, find trends, and use graphing tools to highlight the differences between the sorting algorithms.
 However, the goal at its most basic is just to identify differences between the algorithms.
 
 Below is a list of hypothetical methods we can establish a difference between two algorithms.
+
+
+## Helpful Info
 
 For the examples below I will be comparing AverageSort and PopRank, but we could compare the effectiveness of other algorithms.
 I am just using them to demonstrate the type of difference we need to indentify.
@@ -42,9 +45,9 @@ We needs some function f(x) so that we end up with y.
 
 f(x) could be AvgSort(x) or maybe PopRank(x)
 
-#### Time Independent
+## Time Independent
 
-##### Simple Difference 
+### Simple Difference 
 
 We measure the difference between the intrinsic value and the determined intrinsic value of each algorithm.
 
@@ -56,13 +59,13 @@ The higher the difference the worse the algorithm is for this type of metric.
 
 metric = sum(abs(f(x)-y))
 
-##### Residual Sum of Squares - Literally a Statistics term
+### Residual Sum of Squares - Literally a Statistics term
 
 This one is very similar to simple difference except after finding the difference, we square it before adding it.
 
 metric = sum( (f(x)-y)^2 )
 
-#### Time Dependent
+## Time Dependent
 
 
 
