@@ -83,16 +83,18 @@ p-hat = Variable, upvotes/votes
 z-alpha/2 = Constant, norm dist value, 1.96
 n = constant, but depends on users
 
-
-
 ### Pseudocode of Algorithm
 
+Skipped
 
+### Implement Algorithm logic
 
-### Implement Algorithm
+under module/wilsonfunction
+
+## Implement Algorithm Sort
+
 
 ### Use metric on algorithm
-
 
 
 
