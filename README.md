@@ -70,18 +70,28 @@ metric = sum( (f(x)-y)^2 )
 I think we should care more about the good posts than the bad.
 The other time independent ones care too equally about the posts
 
-So we should only add the sum of squares of those posts that have high intrinsic value.
+So mabe we should have metric where we only add the sum of squares of those posts that have high intrinsic value.
+
+OR maybe see if the top 100 posts based on determined intrinsic value have the highest intrinsic value
 
 ## Time Dependent
 
+### Post Trend
+
+Have some way of graphing the growth of a popular post with time
+
+f(x) vs x basically,
 
 ## Algorithm Design
 
 ### Figure out what Algorithm is doing
 
 p-hat = Variable, upvotes/votes
+
 z-alpha/2 = Constant, norm dist value, 1.96
+
 n = constant, but depends on users
+
 
 ### Pseudocode of Algorithm
 
@@ -89,12 +99,17 @@ Skipped
 
 ### Implement Algorithm logic
 
-under module/wilsonfunction
+under module/wilsonfunction, module/hackernewsfunction
+
 
 ## Implement Algorithm Sort
 
+Easiest and most effective way would just be to do a top n comparison.
+
+screw the rating itself. We care more about the order of posts.
 
 ### Use metric on algorithm
 
+Use the metrics on the ranks
 
 
