@@ -3,13 +3,14 @@ import fakeredis
 from userfunctions import addPosts, makeVotes
 from initfunctions.intrinsicArray import intrinsicArray
 from module.AverageSort import AverageSort
+from module.WilsonSort import WilsonSort
 
-
+        
 
 print('Initializing Configurations')
 
 #Testing Range
-endTime = 220
+endTime = 200
 postTimeInterval = 2
 voteTimeInterval = 1
 
@@ -24,7 +25,9 @@ print('Initilizing Simulation Subfunctions')
 
 #Module Inits
 AverageSort.init(fakeredis,redis,testing)
-moduleArray = [AverageSort]
+WilsonSort.init(fakeredis,redis,testing, 1.96)
+
+moduleArray = [AverageSort, WilsonSort]
 
 print('Simulation Subfunctions Initialized')
 
@@ -51,4 +54,14 @@ while currentTime <= endTime :
 print("Intrinsic Value","Determined Intrinsic Value")
 length = int(endTime/postTimeInterval) + 1
 for i in range(length):
-  print(postList[i], AverageSort.redis.zscore("rating",i))
+  print(postList[i], AverageSort.redis.zscore("rating",i), WilsonSort.redis.zscore("rating",i))
+
+#postList
+print(sorted(range(len(postList)), key=lambda i: postList[i])[-10:])
+
+print(AverageSort.topN(10))
+
+print(WilsonSort.topN(10))
+
+
+

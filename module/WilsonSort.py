@@ -1,14 +1,18 @@
+from wilsonfunction import wilsonFunction
+
 class WilsonSort:
 
   redis = None
+  zscore = None
 
   @staticmethod
-  def init(fakeredis,redis,testing):
+  def init(fakeredis,redis,testing,zscore):
     if(testing):
-      WilsonSort.redis = fakeredis.FakeStrictRedis()
+      WilsonSort.redis = fakeredis.FakeStrictRedis(db=1)
     else:
-      WilsonSort.redis = redis.StrictRedis(host='localhost', port=6379, db=0)
+      WilsonSort.redis = redis.StrictRedis(host='localhost', port=6379, db=1)
     WilsonSort.redis.flushall()
+    WilsonSort.zscore = zscore
 
   @staticmethod
   def addPost(index, count):
@@ -26,15 +30,17 @@ class WilsonSort:
   def voteUp(index):
     score = WilsonSort.redis.hincrby(index, "score", 1)
     votes = WilsonSort.redis.hincrby(index, "votes", 1)
-    rating = #Function here
+    upvotes = (score + votes)/2 
+    rating = 2*(wilsonFunction(upvotes, votes, WilsonSort.zscore)) - 1 
     WilsonSort.redis.zadd("rating", rating, index)
     
-    
+
   @staticmethod
   def voteDown(index):
     score = WilsonSort.redis.hincrby(index, "score", -1)
     votes = WilsonSort.redis.hincrby(index, "votes", 1)
-    rating = #Function here
+    upvotes = (score + votes)/2 
+    rating = 2*(wilsonFunction(upvotes, votes, WilsonSort.zscore)) - 1 
     WilsonSort.redis.zadd("rating", rating, index)
     
   

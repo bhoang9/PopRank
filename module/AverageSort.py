@@ -5,7 +5,7 @@ class AverageSort:
   @staticmethod
   def init(fakeredis,redis,testing):
     if(testing):
-      AverageSort.redis = fakeredis.FakeStrictRedis()
+      AverageSort.redis = fakeredis.FakeStrictRedis(db = 0)
     else:
       AverageSort.redis = redis.StrictRedis(host='localhost', port=6379, db=0)
     AverageSort.redis.flushall()
