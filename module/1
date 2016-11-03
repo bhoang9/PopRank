@@ -20,6 +20,8 @@ class WilsonSort:
     WilsonSort.redis.hset(index, "score", 1)
     WilsonSort.redis.hset(index, "votes", 1)
     WilsonSort.redis.zadd("rating", 1, index)
+    WilsonSort.redis.zadd("hot", 0, index)
+
 
   @staticmethod
   def getRedisListSize():

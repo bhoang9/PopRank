@@ -6,7 +6,7 @@ def rankDifference(postList,moduleArray):
             for module in moduleArray:
                 sum = 0
                 
-                moduleTopTwentyFive = map(int,module.topN(25))
+                moduleTopTwentyFive = map(int,module.popN(25))
                 for i in range(0,24):
                     if (topTwentyFive[i] in moduleTopTwentyFive):
                         sum += 25 - i

@@ -3,14 +3,16 @@ import fakeredis
 from userfunctions import addPosts, makeVotes
 from initfunctions.intrinsicArray import intrinsicArray
 from module.AverageSort import AverageSort
-from module.WilsonSort import WilsonSort
+from module.WilsonCoolingSort import WilsonCoolingSort
+from module.WilsonHackerSort import WilsonHackerSort
 
+from metrics.rankDifference import rankDifference
         
 
 print('Initializing Configurations')
 
 #Testing Range
-endTime = 200
+endTime = 1000 # Number of seconds, 100,000 for a day
 postTimeInterval = 2
 voteTimeInterval = 1
 
@@ -25,9 +27,10 @@ print('Initilizing Simulation Subfunctions')
 
 #Module Inits
 AverageSort.init(fakeredis,redis,testing)
-WilsonSort.init(fakeredis,redis,testing, 1.96)
+WilsonHackerSort.init(fakeredis,redis,testing, 1.96)
+WilsonCoolingSort.init(fakeredis,redis,testing, 1.96)
 
-moduleArray = [AverageSort, WilsonSort]
+moduleArray = [WilsonCoolingSort,WilsonHackerSort]
 
 print('Simulation Subfunctions Initialized')
 
@@ -51,17 +54,22 @@ while currentTime <= endTime :
     currentTime += 1
 
 #Simulation End
-print("Intrinsic Value","Determined Intrinsic Value")
-length = int(endTime/postTimeInterval) + 1
-for i in range(length):
-    print(postList[i], AverageSort.redis.zscore("rating",i), WilsonSort.redis.zscore("rating",i))
+#print("Intrinsic Value","Determined Intrinsic Value")
+#length = int(endTime/postTimeInterval) + 1
+#for i in range(length):
+#    print(postList[i], AverageSort.redis.zscore("rating",i), WilsonSort.redis.zscore("rating",i))
 
 #postList
+rankDifference(postList, moduleArray)
 print(sorted(range(len(postList)), key=lambda i: postList[i])[-10:])
+#print(AverageSort.topN(10))
+#print(WilsonCoolingSort.topN(10))
+#print(WilsonHackerSort.topN(10))
 
-print(AverageSort.topN(10))
+#rankDifference(postList, moduleArray)
 
-print(WilsonSort.topN(10))
+#print(WilsonSort.topN(100))
 
-
+print(WilsonCoolingSort.popN(100))
+print(WilsonHackerSort.popN(100))
 
