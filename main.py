@@ -3,6 +3,10 @@ import fakeredis
 from userfunctions import addPosts, makeVotes
 from initfunctions.intrinsicArray import intrinsicArray
 from module.AverageSort import AverageSort
+from metrics.simpleDifference import simpleDifference
+from metrics.residualSS import residualSS
+from metrics.residualBest import residualBest
+from metrics.rankDifference import rankDifference
 
 
 
@@ -48,7 +52,15 @@ while currentTime <= endTime :
   currentTime += 1
 
 #Simulation End
-print("Intrinsic Value","Determined Intrinsic Value")
-length = int(endTime/postTimeInterval) + 1
-for i in range(length):
-  print(postList[i], AverageSort.redis.zscore("rating",i))
+#print("Intrinsic Value","Determined Intrinsic Value")
+#length = int(endTime/postTimeInterval) + 1
+#for i in range(length):
+#  print(postList[i], AverageSort.redis.zscore("rating",i))
+
+#simpleDifference(postList, moduleArray)
+#residualSS(postList, moduleArray)
+#residualBest(postList,moduleArray)
+#rankDifference(postList,moduleArray)
+
+
+
