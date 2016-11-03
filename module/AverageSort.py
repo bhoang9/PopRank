@@ -15,7 +15,7 @@ class AverageSort:
     AverageSort.redis.zadd("time",count,index)
     AverageSort.redis.hset(index, "score", 1)
     AverageSort.redis.hset(index, "votes", 1)
-    AverageSort.redis.zadd("average", 1, index)
+    AverageSort.redis.zadd("rating", 1, index)
 
   @staticmethod
   def getRedisListSize():
@@ -26,22 +26,22 @@ class AverageSort:
   def voteUp(index):
     score = AverageSort.redis.hincrby(index, "score", 1)
     votes = AverageSort.redis.hincrby(index, "votes", 1)
-    average = score/float(votes)
-    AverageSort.redis.zadd("average", average, index)
+    rating = score/float(votes)
+    AverageSort.redis.zadd("rating", rating, index)
     
     
   @staticmethod
   def voteDown(index):
     score = AverageSort.redis.hincrby(index, "score", -1)
     votes = AverageSort.redis.hincrby(index, "votes", 1)
-    average = score/float(votes)
-    AverageSort.redis.zadd("average", average, index)
+    rating = score/float(votes)
+    AverageSort.redis.zadd("rating", rating, index)
     
   
   @staticmethod
   def topN(n):
     #returns array
-    return AverageSort.redis.zrange("average", -n, -1)
+    return AverageSort.redis.zrange("rating", -n, -1)
 
   @staticmethod
   def newN(n):

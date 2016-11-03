@@ -51,4 +51,4 @@ while currentTime <= endTime :
 print("Intrinsic Value","Determined Intrinsic Value")
 length = int(endTime/postTimeInterval) + 1
 for i in range(length):
-  print(postList[i], AverageSort.redis.zscore("average",i))
+  print(postList[i], AverageSort.redis.zscore("rating",i))
