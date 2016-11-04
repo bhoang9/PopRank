@@ -2,10 +2,10 @@ import redis
 import fakeredis
 from userfunctions import addPosts, makeVotes
 from initfunctions.intrinsicArray import intrinsicArray
-from module.AverageSort import AverageSort
+from module.AverageCoolingSort import AverageCoolingSort
+from module.AverageHackerSort import AverageHackerSort
 from module.WilsonCoolingSort import WilsonCoolingSort
 from module.WilsonHackerSort import WilsonHackerSort
-
 from metrics.rankDifference import rankDifference
         
 
@@ -26,11 +26,12 @@ print('Configurations Initiliazed')
 print('Initilizing Simulation Subfunctions')
 
 #Module Inits
-AverageSort.init(fakeredis,redis,testing)
+AverageCoolingSort.init(fakeredis,redis,testing)
+AverageHackerSort.init(fakeredis,redis,testing)
 WilsonHackerSort.init(fakeredis,redis,testing, 1.96)
 WilsonCoolingSort.init(fakeredis,redis,testing, 1.96)
 
-moduleArray = [WilsonCoolingSort,WilsonHackerSort]
+moduleArray = [AverageHackerSort, AverageCoolingSort, WilsonCoolingSort,WilsonHackerSort]
 
 print('Simulation Subfunctions Initialized')
 
@@ -70,6 +71,8 @@ print(sorted(range(len(postList)), key=lambda i: postList[i])[-10:])
 
 #print(WilsonSort.topN(100))
 
+print(AverageCoolingSort.popN(100))
+print(AverageHackerSort.popN(100))
 print(WilsonCoolingSort.popN(100))
 print(WilsonHackerSort.popN(100))
 

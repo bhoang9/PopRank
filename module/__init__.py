@@ -1,1 +1,1 @@
-__all__ = ["AverageSort","WilsonSort"]
+__all__ = ["AverageCoolingSort", "AverageHackerSort", "WilsonCoolingSort", "WilsonHackerSort"]
